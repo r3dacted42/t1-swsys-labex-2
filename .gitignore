@@ -1,0 +1,5 @@
+.db*
+myfifo*
+temp*.txt
+*.o*
+.log
