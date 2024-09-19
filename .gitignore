@@ -3,3 +3,4 @@ myfifo*
 temp*.txt
 *.o*
 .log
+.vscode

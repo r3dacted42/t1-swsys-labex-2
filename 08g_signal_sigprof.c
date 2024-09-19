@@ -2,44 +2,44 @@
 ========================================================================================
 Name:       Priyansh Agrahari
 Reg. No.:   MT2024120
-Date:       12 September 2024
+Date:       19 September 2024
 
-1. Write a separate program (for each time domain) to set a interval timer in 10sec and
-10micro second
-    a. ITIMER_REAL
-    b. ITIMER_VIRTUAL
-    c. ITIMER_PROF <---
+8. Write a separate program using signal system call to catch the following signals.
+    a. SIGSEGV
+    b. SIGINT
+    c. SIGFPE
+    d. SIGALRM (use alarm system call)
+    e. SIGALRM (use setitimer system call)
+    f. SIGVTALRM (use setitimer system call)
+    g. SIGPROF (use setitimer system call) <---
 ========================================================================================
 */
 
-#include <stdio.h>
-#include <unistd.h>
 #include <signal.h>
-#include <sys/time.h>
 #include "sig_handler.h"
+#include <unistd.h>
 
-int main(void) {
+int main(int argc, char** argv) {
     signal(SIGPROF, handler);
     struct itimerval timer;
-    timer.it_value.tv_sec = 10;
-    timer.it_value.tv_usec = 10;
+    timer.it_value.tv_sec = 1;
+    timer.it_value.tv_usec = 1;
     timer.it_interval.tv_sec = 0;
     timer.it_interval.tv_usec = 0;
-    printf("waiting for signal...\n");
     if (setitimer(ITIMER_PROF, &timer, NULL) < 0) {
         perror("setitimer failed with: ");
         return -1;
     }
     while(1);
+
     return 0;
 }
 
 /*
 Sample Execution:
 
-$ runc 01c_itimer_prof.c 
-waiting for signal...
-((after 10 seconds))
+$ runc 08g_sigprof.c 
+((after ~1 second))
 signal of type SIGPROF received!!!
 
 */
