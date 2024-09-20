@@ -28,6 +28,8 @@ echo "deleting executables...";
 rm 13_try.o 13_send.o;
 
 <<sample
+Sample Execution:
+
 $ sh 13_check.sh
 starting 13_try_to_catch.c...
 starting and sending pid to 13_send_stop.c...
