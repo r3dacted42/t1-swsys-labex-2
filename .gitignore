@@ -1,6 +1,6 @@
-.db*
-myfifo*
+*.db
+*.fifo
 temp*.txt
 *.o*
-.log
+*.log
 .vscode
