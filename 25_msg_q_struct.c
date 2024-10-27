@@ -42,13 +42,15 @@ int main() {
 /*
 Sample Execution:
 
-$ runc 24_msg_q_id.c 
+$ runc 25_msg_q_struct.c
 msg queue key: 1629509924, id: 0
-
-$ ipcs --q
-
------- Message Queues --------
-key        msqid      owner      perms      used-bytes   messages
-0x61205924 0          r3dacted42 666        0            0
+a. access permission: 666
+b. uid: 1000, gid: 1000
+c. time of last message sent: 0, received: 0
+d. time of last change in the message queue: 1729845383
+e. size of the queue: 0
+f. number of messages in the queue: 0
+g. maximum number of bytes allowed: 16384
+h. pid of the msgsnd: 0, msgrcv: 0
 
 */
